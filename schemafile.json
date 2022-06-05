@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "id": {
+        "type": "number"
+      },
+      "phone": {
+        "type": "number"
+      },
+      "home_phone": {
+        "type": "number"
+      },
+      "work_phone": {
+        "type": "number"
+      },
+      "birth_year": {
+        "type": "number"
+      },
+      "age": {
+        "type": "number"
+      },
+      "day_of_enquiry": {
+        "type": "string",
+        "enum": ["SU", "MO", "TU", "WE", "TH", "FR", "SA"]
+      }
+    },
+    "required": ["name", "id", "day_of_enquiry"],
+    "anyOf": [
+        {
+            "required": [
+                "phone"
+            ]
+        },
+        {
+            "required": [
+                "home_phone"
+            ]
+        },
+        {
+            "required": [
+                "work_phone"
+            ]
+        }
+    ],
+    "oneOf": [
+        {
+            "required": [
+                "birth_year"
+            ]
+        },
+        {
+            "required": [
+                "age"
+            ]
+        }
+    ]
+}
